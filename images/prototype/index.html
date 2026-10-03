@@ -41,16 +41,6 @@ tr:last-child td{border:0}
 ul{font-size:0.92rem;line-height:1.9;color:#1f0f45;list-style:none}ul li::before{content:'▸ ';color:var(--a2)}
 .ft{padding:10px 18px 14px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--border);margin-top:14px;gap:10px;flex-wrap:wrap}
 .ft div{font-size:12px;color:#1f0f45}
-@keyframes up{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
-@keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
-@keyframes pop{from{opacity:0;transform:scaleX(0)}to{opacity:var(--o,1);transform:none}}
-#pr rect{opacity:var(--o,1);transform-box:fill-box;transform-origin:left}
-.js header,.js .card,.js .ft{opacity:0}
-.js .in{opacity:1;animation:up .75s cubic-bezier(.2,.7,.2,1) both}
-.js .in .br i{transform-origin:left;animation:grow 1s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(.5s + var(--i,0)*.1s)}
-.js .in .pl>*,.js .in .tk span,.js .in tr,.js .in ul li{animation:up .5s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(.45s + var(--i,0)*.08s)}
-.js .in #pr rect{animation:pop .35s ease-out both}
-@media(prefers-reduced-motion:reduce){.js header,.js .card,.js .ft{opacity:1}.js .in,.js .in *{animation:none!important}}
 @media(max-width:1024px){.grid{grid-template-columns:repeat(2,1fr)}header{flex-direction:column;gap:12px}}
 @media(max-width:640px){.grid{grid-template-columns:1fr}.s2{grid-column:span 1}}
 </style></head><body>
@@ -96,18 +86,6 @@ let s=11;const R=()=>(s=(s*16807)%2147483647)/2147483647,sc=[0,2,4,5,7,9,11,12,1
 for(let i=0;i<12;i++)o+=`<line x1="0" x2="640" y1="${i*16}" y2="${i*16}" stroke="#e8def8" stroke-width=".5"/>`;
 for(let b=0;b<=8;b++)o+=`<line y1="0" y2="190" x1="${b*80}" x2="${b*80}" stroke="#d6c6f2" stroke-width=".6"/>`;
 let t=0;while(t<630){const bass=R()<.3,p=sc[(R()*(bass?5:12))|0],d=[8,16,16,32,32,64][(R()*6)|0],y=bass?170-p*3.5:140-p*6.2,c=bass?'#3730a3':R()<.15?'#a3169a':'#5b21b6';
-o+=`<rect x="${t}" y="${y}" width="${Math.min(d,636-t)-1.5}" height="5" rx="2" fill="${c}" style="--o:${(.5+R()*.5).toFixed(2)};animation-delay:${(.6+t/640*2).toFixed(2)}s"/>`;t+=[8,8,16,16,32][(R()*5)|0]}
+o+=`<rect x="${t}" y="${y}" width="${Math.min(d,636-t)-1.5}" height="5" rx="2" fill="${c}" opacity="${.5+R()*.5}" style=""/>`;t+=[8,8,16,16,32][(R()*5)|0]}
 document.getElementById('pr').innerHTML=o;
-
-(function(){
-if(matchMedia('(prefers-reduced-motion: reduce)').matches||!('IntersectionObserver' in window))return;
-document.documentElement.classList.add('js');
-document.querySelectorAll('.br i,.pl>*,.tk span,tr,ul li').forEach(n=>n.style.setProperty('--i',[...n.parentNode.children].indexOf(n)));
-function count(el,delay){const m=el.textContent.match(/^([\d\s]+(?:,\d+)?)(.*)$/);if(!m)return;
-const dec=(m[1].split(',')[1]||'').length,end=parseFloat(m[1].replace(/\s/g,'').replace(',','.')),suf=m[2],fmt=v=>v.toLocaleString('fr-FR',{minimumFractionDigits:dec,maximumFractionDigits:dec})+suf;
-el.textContent=fmt(0);const t0=performance.now()+delay;
-(function f(now){const p=Math.min(Math.max((now-t0)/1200,0),1);el.textContent=fmt(end*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(f)})(performance.now())}
-const io=new IntersectionObserver(es=>{es.filter(e=>e.isIntersecting).forEach((e,i)=>{const el=e.target;el.style.animationDelay=(i*.09)+'s';el.classList.add('in');io.unobserve(el);const kv=el.querySelector('.kv');if(kv)count(kv,i*90+300)})},{threshold:.12});
-document.querySelectorAll('header,.card,.ft').forEach(e=>io.observe(e));
-})();
 </script></body></html>
