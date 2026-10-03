@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Dashboard — Génération musicale · Transformer</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;800&family=JetBrains+Mono:wght@300;400;500&display=swap');
+:root{--bg:#0d0720;--surface:#170e30;--border:#34205f;--a1:#c28bff;--a2:#ff5df0;--a3:#8e9bff;--a4:#ecd0ff;--text:#f6f1ff;--muted:#b8a6e0}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'JetBrains Mono',monospace;background:var(--bg);color:var(--text);min-height:100vh;padding:22px;
+background-image:radial-gradient(ellipse 60% 40% at 20% 10%,rgba(182,107,255,.14) 0%,transparent 60%),radial-gradient(ellipse 50% 35% at 80% 85%,rgba(255,61,240,.09) 0%,transparent 60%)}
+header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:22px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+header h1{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(1.1rem,2.5vw,1.7rem);letter-spacing:-.5px;line-height:1.15}
+header h1 span{color:var(--a1);}
+header p{font-size:0.91rem;color:#e9e0fb;margin-top:4px}
+.badge{font-size:0.87rem;letter-spacing:.1em;text-transform:uppercase;color:var(--a1);border:1px solid var(--a1);padding:3px 10px;border-radius:2px;}
+.gh{display:inline-flex;align-items:center;gap:4px;font-size:0.84rem;color:var(--a1);border:1px solid rgba(124,58,237,.4);padding:2px 7px;border-radius:2px;letter-spacing:.06em;text-decoration:none;font-weight:600}
+.gh:hover{background:rgba(182,107,255,.12)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:18px;position:relative;overflow:hidden}
+.card::before{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at 0% 0%,rgba(182,107,255,.12),transparent 60%)}
+.card:nth-child(even)::before{background:radial-gradient(circle at 100% 0%,rgba(255,61,240,.09),transparent 60%)}
+.s2{grid-column:span 2}
+.cl{font-weight:600;font-size:0.81rem;letter-spacing:.12em;text-transform:uppercase;color:#b8a6e0;margin-bottom:5px}
+.ct{font-family:'Syne',sans-serif;font-size:1.23rem;font-weight:600;margin-bottom:12px}
+.kv{font-family:'Syne',sans-serif;font-size:3.4rem;font-weight:800;line-height:1;letter-spacing:-1px}
+.v1{color:var(--a1);}.v2{color:var(--a2);}.v3{color:var(--a3);}.v4{color:var(--a4)}
+.ks{font-weight:500;font-size:0.91rem;color:#e9e0fb;margin-top:5px}
+.d{display:inline-block;font-size:0.91rem;margin-top:7px;padding:2px 7px;border-radius:20px;background:rgba(182,107,255,.15);color:var(--a1)}
+.d.pk{background:rgba(255,61,240,.14);color:var(--a2)}
+.tk{display:flex;flex-direction:column;gap:6px;font-size:0.98rem}
+.tk span{padding:5px 9px;border-radius:4px;border:1px solid;width:max-content}
+.br{display:grid;grid-template-columns:96px 1fr 44px;gap:8px;align-items:center;font-size:0.90rem;margin:9px 0;color:#e9e0fb}
+.br i{display:block;height:7px;border-radius:4px}
+.br b{color:var(--a4);font-weight:800;text-align:right}
+.pl{display:flex;flex-wrap:wrap;align-items:center;gap:7px;font-size:0.92rem}
+.pl u{text-decoration:none;padding:7px 10px;border-radius:4px;background:rgba(182,107,255,.08);border:1px solid rgba(124,58,237,.4)}
+.pl u.h{border-color:var(--a2);color:var(--a2);}
+.pl em{color:var(--muted);font-style:normal}
+table{width:100%;border-collapse:collapse;font-size:0.90rem}
+td{padding:5px;color:#e9e0fb;border-bottom:1px solid var(--border)}td:last-child{color:var(--a1);text-align:right;font-weight:600}
+tr:last-child td{border:0}
+ul{font-size:0.92rem;line-height:1.9;color:#e9e0fb;list-style:none}ul li::before{content:'▸ ';color:var(--a2)}
+.ft{padding:10px 18px 14px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--border);margin-top:14px;gap:10px;flex-wrap:wrap}
+.ft div{font-size:12px;color:#e9e0fb}
+@media(max-width:1024px){.grid{grid-template-columns:repeat(2,1fr)}header{flex-direction:column;gap:12px}}
+@media(max-width:640px){.grid{grid-template-columns:1fr}.s2{grid-column:span 1}}
+</style></head><body>
+<header>
+ <div><h1>Génération musicale — <span>Transformer decoder-only</span></h1>
+ <p>MIDI · tokens · modèle GPT · Mozart · génération autorégressive</p></div>
+ <div style="text-align:right">
+  <div class="badge">ISN · Univ. Lille · 2026</div>
+  <div style="display:flex;align-items:center;justify-content:flex-end;gap:8px;margin-top:5px">
+   <div style="font-size:0.84rem;color:#e9e0fb">Created by Nguyen Duc Hoang Viet</div>
+   <a class="gh" href="https://github.com/ndhviet/Projet-Midi-Music-LLM"><svg width="11" height="11" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38v-1.33c-2.23.48-2.7-1.07-2.7-1.07-.36-.92-.89-1.17-.89-1.17-.73-.5.05-.49.05-.49.8.06 1.23.83 1.23.83.71 1.22 1.87.87 2.33.66.07-.52.28-.87.5-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.6 7.6 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48v2.2c0 .21.15.46.55.38A8 8 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>GitHub</a>
+  </div></div>
+</header>
+<div class="grid">
+ <div class="card"><div class="cl">Vocabulaire</div><div class="ct">Tokens après quantisation</div><div class="kv v1">93</div><div class="ks">position · durée · vélocité · hauteur</div><span class="d">↑ 4 tokens par note</span></div>
+ <div class="card"><div class="cl">Architecture</div><div class="ct">Paramètres du modèle</div><div class="kv v2">1,1 M</div><div class="ks">4 couches · 6 têtes · d_model 192</div><span class="d pk">contexte : 256 tokens</span></div>
+ <div class="card"><div class="cl">Entraînement</div><div class="ct">Perte finale</div><div class="kv v3">1,48</div><div class="ks">objectif atteint : &lt; 1,5</div><span class="d">↑ 2 époques · AdamW</span></div>
+ <div class="card"><div class="cl">Génération</div><div class="ct">Notes par morceau</div><div class="kv v4">1 247</div><div class="ks">5 morceaux générés (seed → .mid)</div><span class="d pk">top-k 50 · top-p 0,85</span></div>
+
+ <div class="card s2"><div class="cl">Sortie du modèle</div><div class="ct">Piano roll d'un morceau généré (illustration)</div><svg id="pr" viewBox="0 0 640 190" width="100%"></svg></div>
+ <div class="card"><div class="cl">Représentation</div><div class="ct">Une note = 4 tokens</div><div class="tk">
+  <span style="color:var(--a1);border-color:rgba(182,107,255,.5)">POSITION_480</span>
+  <span style="color:var(--a2);border-color:rgba(255,61,240,.5)">VELOCITY_80</span>
+  <span style="color:var(--a3);border-color:rgba(109,125,255,.5)">NOTE_ON_60</span>
+  <span style="color:var(--a4);border-color:rgba(230,194,255,.5)">DURATION_240</span></div></div>
+ <div class="card"><div class="cl">Fonction de coût</div><div class="ct">Cross-entropy pondérée</div>
+  <div class="br">POSITION<i style="background:var(--a2)"></i><b>×2,5</b></div>
+  <div class="br">NOTE_ON<i style="width:80%;background:var(--a1)"></i><b>×2</b></div>
+  <div class="br">DURATION<i style="width:80%;background:var(--a3)"></i><b>×2</b></div>
+  <div class="br">VELOCITY<i style="width:40%;background:var(--a4)"></i><b>×1</b></div></div>
+
+ <div class="card s2"><div class="cl">Chaîne complète</div><div class="ct">Du fichier MIDI à la musique générée</div>
+  <div class="pl"><u>MIDI</u><em>→</em><u>Tokens</u><em>→</em><u>vocab.txt</u><em>→</em><u class="h">Transformer</u><em>→</em><u>Échantillonnage</u><em>→</em><u>MIDI</u></div>
+  <div class="ks" style="margin-top:14px">Quantisation : grille de 120 ticks (double-croche) · 9 durées · 8 niveaux de vélocité</div></div>
+ <div class="card"><div class="cl">Hyperparamètres</div><div class="ct">Configuration</div><table>
+  <tr><td>d_feed-forward</td><td>768</td></tr><tr><td>Dropout</td><td>0,1</td></tr><tr><td>Batch size</td><td>32</td></tr><tr><td>Learning rate</td><td>3e-4</td></tr><tr><td>Normalisation</td><td>Pre-LN</td></tr></table></div>
+ <div class="card"><div class="cl">Perspectives</div><div class="ct">Limites et pistes</div><ul><li>Contexte 256 → 512</li><li>Token de tonalité</li><li>Polyphonie maximale</li><li>Corpus multi-compositeurs</li></ul></div>
+</div>
+<div class="ft"><div>Corpus : GrandMidiPiano (Mozart) · Analyse : Nguyen Duc Hoang Viet, Elisa Castano, Yvan Michel Tchonang — Université de Lille, M1 Mathématiques &amp; Applications, 2025–2026</div>
+ <a class="gh" style="font-size:12px;padding:4px 10px;text-transform:uppercase;white-space:nowrap" href="https://github.com/ndhviet/Projet-Midi-Music-LLM">github.com/ndhviet/Projet-Midi-Music-LLM</a></div>
+<script>
+let s=11;const R=()=>(s=(s*16807)%2147483647)/2147483647,sc=[0,2,4,5,7,9,11,12,14,16,17,19];let o='';
+for(let i=0;i<12;i++)o+=`<line x1="0" x2="640" y1="${i*16}" y2="${i*16}" stroke="#2a1a52" stroke-width=".5"/>`;
+for(let b=0;b<=8;b++)o+=`<line y1="0" y2="190" x1="${b*80}" x2="${b*80}" stroke="#3a2670" stroke-width=".6"/>`;
+let t=0;while(t<630){const bass=R()<.3,p=sc[(R()*(bass?5:12))|0],d=[8,16,16,32,32,64][(R()*6)|0],y=bass?170-p*3.5:140-p*6.2,c=bass?'#8e9bff':R()<.15?'#ff5df0':'#c28bff';
+o+=`<rect x="${t}" y="${y}" width="${Math.min(d,636-t)-1.5}" height="5" rx="2" fill="${c}" opacity="${.5+R()*.5}" style=""/>`;t+=[8,8,16,16,32][(R()*5)|0]}
+document.getElementById('pr').innerHTML=o;
+</script></body></html>

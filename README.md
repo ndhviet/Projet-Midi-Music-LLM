@@ -136,5 +136,9 @@ Le code correspondant se trouve dans le dossier `michel/`.
  **Pour télécharger cette version du projet, cliquez sur le lien suivant :**  
 [Télécharger la version Michel](https://drive.google.com/file/d/1zCtGJt5VyUaAaJJaxiEbPpnf1ostr_za/view?usp=sharing&utm_source=chatgpt.com)
 
+### Dashboard 
 
+[![Dashboard](images/dashboard_musique.png)](https://ndhviet.github.io/Projet-Modele-bayesien-pour-ecologie/images/dashboard_moustique.html)
+
+➡️ Cliquez sur l'image pour ouvrir le dashboard.
 
