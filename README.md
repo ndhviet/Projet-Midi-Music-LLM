@@ -141,4 +141,4 @@ Le code correspondant se trouve dans le dossier `michel/`.
 [![Dashboard](images/dashboard_musique.png)](https://ndhviet.github.io/Projet-Midi-Music-LLM/)
 
 ➡️ Cliquez sur l'image pour ouvrir le dashboard.
-
+ici et ailleurs.
