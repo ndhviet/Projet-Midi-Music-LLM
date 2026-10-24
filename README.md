@@ -16,7 +16,6 @@
 <br>
 
 
-
 <h2 align="center">Réalisé par</h2>
 
 <div align="center">
@@ -29,6 +28,7 @@
 
 </div>
 
+---
 # MusicGPT — Génération automatique de musique MIDI
 
 MusicGPT est un modèle de langage entraîné sur des fichiers MIDI afin d'apprendre les régularités musicales et de générer de nouvelles séquences musicales à partir d'une séquence de notes en entrée.
