@@ -124,53 +124,7 @@ Les fichiers `.mid` peuvent être ouverts avec :
 
 ---
 
-## Notes
 
-- L'entraînement peut prendre plusieurs dizaines de minutes selon la machine.
-- Le dossier `checkpoints/` contient le modèle déjà entraîné — il est possible de passer directement à l'étape 4 sans réentraîner.
-
-## Fichiers audio de démonstration
- 
-Le dossier `sample/` contient des exemples de morceaux générés par le modèle, convertis au format MP3 pour une écoute directe sans lecteur MIDI.
-
-## Autre version
-
-Une version alternative du projet a été développée par **Yvan Michel TCHONANG**, avec une approche différente : les fichiers MIDI sont d'abord convertis en fichiers CSV avant d'être utilisés pour l'entraînement du modèle.
-
-Le code correspondant se trouve dans le dossier `michel/`.
- **Pour télécharger cette version du projet, cliquez sur le lien suivant :**  
-[Télécharger la version Michel](https://drive.google.com/file/d/1zCtGJt5VyUaAaJJaxiEbPpnf1ostr_za/view?usp=sharing&utm_source=chatgpt.com)
-
-### Dashboard 
-
-[![Dashboard](images/dashboard_musique.png)](https://ndhviet.github.io/Projet-Midi-Music-LLM/)
-
-➡️ Cliquez sur l'image pour ouvrir le dashboard.
-
-<div align="center">
-  <h1>MusicGPT</h1>
-  <p><em>Modèle de langage pour la génération automatique de musique MIDI</em></p>
-
-  <a href="#"><img src="https://img.shields.io/badge/Python-3.11+-3776AB?logo=python&logoColor=white&style=flat-square"></a>
-  <a href="#"><img src="https://img.shields.io/badge/PyTorch-Language%20Model-EE4C2C?logo=pytorch&logoColor=white&style=flat-square"></a>
-  <a href="#"><img src="https://img.shields.io/badge/License-MIT-blue?style=flat-square"></a>
-  <a href="https://ndhviet.github.io/Projet-Midi-Music-LLM/">
-    <img src="https://img.shields.io/badge/Demo-Dashboard-red?style=flat-square">
-  </a>
-</div>
-<br>
-
-<h2 align="center">Réalisé par</h2>
-
-<div align="center">
-
-| Membre | Contact |
-|---|---|
-| **Duc Hoang Viet NGUYEN** | [ndhviet.github.io](https://ndhviet.github.io/) |
-| **Elisa CASTANO** | elisa.castano.etu@univ-lille.fr |
-| **Yvan Michel TCHONANG** | [michel-tchonang.lovable.app](https://michel-tchonang.lovable.app/) |
-
-</div>
 
 ## 1. Présentation du projet
 
