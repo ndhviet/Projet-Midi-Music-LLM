@@ -103,7 +103,7 @@ Les fichiers MIDI générés apparaissent dans `generated_music/`.
 - **Écouter les fichiers MIDI :** [signal.vercel.app](https://signal.vercel.app) ou [miditoolbox.com/player](https://miditoolbox.com/player) (en ligne, gratuit).
 - **Exemples audio :** le dossier `sample/` contient des morceaux générés par le modèle, au format MP3.
 - **Entraînement :** il peut prendre plusieurs dizaines de minutes. Le dossier `checkpoints/` contient déjà un modèle entraîné, on peut donc passer directement à l'étape 4.
-- **Autre version :** développée par **Yvan Michel TCHONANG**, où les fichiers MIDI sont d'abord convertis en CSV avant l'entraînement. Le code est dans `michel/` ([télécharger cette version](https://drive.google.com/file/d/1zCtGJt5VyUaAaJJaxiEbPpnf1ostr_za/view?usp=sharing)).
+- **Autre version :** développée par **Yvan Michel TCHONANG**, où les fichiers MIDI sont d'abord convertis en CSV avant l'entraînement. Le code est dans `michel/` ([télécharger cette version](https://drive.google.com/file/d/18MEdbMbD3CwsDc4BQnOVu5VN-I64lMHD/view?usp=sharing)).
 
 ---
 
