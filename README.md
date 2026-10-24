@@ -30,19 +30,6 @@
 
 # MusicGPT — Génération automatique de musique MIDI
 
-MusicGPT est un modèle de langage entraîné sur des fichiers MIDI afin d'apprendre les régularités musicales et de générer de nouvelles séquences musicales à partir d'une séquence de notes en entrée.
-
-Ce projet a été réalisé dans le cadre du Master 1 Ingénierie Numérique et Statistique – Data Science en 2025-2026.
-
-L'objectif est d'explorer l'utilisation des modèles de langage pour la prédiction de séquences musicales et la génération automatique de musique au format MIDI.
-
-## Consulter le rapport complet
-
-Vous pouvez consulter le rapport détaillé du projet (format PDF) en cliquant sur le lien ci-dessous :
-
-<a href="rapport.pdf" target="_blank" style="font-weight: bold; text-decoration: underline;">  Ouvrir le rapport PDF  </a>
-
-
 ## 1. Présentation du projet
 
 MusicGPT est un modèle de langage entraîné sur des fichiers MIDI afin d'apprendre les régularités musicales et de générer de nouvelles séquences à partir d'une séquence de notes en entrée.
