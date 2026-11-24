@@ -36,7 +36,7 @@ MusicGPT est un modèle de langage entraîné sur des fichiers MIDI afin d'appre
 
 Projet réalisé dans le cadre du Master 1 Ingénierie Numérique et Statistique – Data Science (2025-2026). L'objectif est d'explorer l'utilisation des modèles de langage pour la prédiction de séquences musicales et la génération automatique de musique au format MIDI.
 
-📄 [Ouvrir le rapport PDF](rapport.pdf)
+📄 [Ouvrir le rapport PDF](files/rapport.pdf)
 
 ---
 
